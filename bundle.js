@@ -73,22 +73,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 const state = {
-  count: 0
+  count: 0,
+  str :""
 }
 
 const actions = {
   down: value => state => ({ count: state.count - value }),
-  up: value => state => ({ count: state.count + value })
+  up: value => state => ({ count: state.count + value }),
+  add: value => state => ({str: state.str + value})
 }
 
 const view = (state, actions) =>
   Object(__WEBPACK_IMPORTED_MODULE_0_hyperapp__["b" /* h */])("div", {}, [
-    Object(__WEBPACK_IMPORTED_MODULE_0_hyperapp__["b" /* h */])("h1", {}, state.count),
+    Object(__WEBPACK_IMPORTED_MODULE_0_hyperapp__["b" /* h */])("h2", {}, state.count),
+    Object(__WEBPACK_IMPORTED_MODULE_0_hyperapp__["b" /* h */])("h2", {}, state.str),
     Object(__WEBPACK_IMPORTED_MODULE_0_hyperapp__["b" /* h */])("button", { onclick: () => actions.down(1) }, "–"),
-    Object(__WEBPACK_IMPORTED_MODULE_0_hyperapp__["b" /* h */])("button", { onclick: () => actions.up(1) }, "+")
+    Object(__WEBPACK_IMPORTED_MODULE_0_hyperapp__["b" /* h */])("button", { onclick: () => actions.up(1) }, "+"),
+    Object(__WEBPACK_IMPORTED_MODULE_0_hyperapp__["b" /* h */])("button", { onclick: () => actions.add("hoge") }, "AddHoge")
   ])
 
-window.main = Object(__WEBPACK_IMPORTED_MODULE_0_hyperapp__["a" /* app */])(state, actions, view, document.body)
+const main = Object(__WEBPACK_IMPORTED_MODULE_0_hyperapp__["a" /* app */])(state, actions, view, document.body)
 
 
 /***/ }),
